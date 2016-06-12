@@ -1,0 +1,1 @@
+int strlenASM(const char *);

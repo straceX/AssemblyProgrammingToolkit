@@ -1,0 +1,1 @@
+int maxofarrayASM(const int *);
