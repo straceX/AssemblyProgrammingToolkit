@@ -35,3 +35,13 @@ _gettotal:
 	pop ebp
 	ret
 
+_swap:
+	push ebp
+	mov ebp, esp
+	mov eax, [ebp + 8]
+	mov edx, [eax]
+	mov ecx, [ebp + 12]
+	xchg edx, [ecx]
+	mov [eax], edx
+	pop ebp
+	ret
