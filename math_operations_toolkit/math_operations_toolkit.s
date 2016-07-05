@@ -1,8 +1,8 @@
 [BITS 32]
 section .text
-	global add, multiply
+	global _add, _multiply, _gettotal
 
-add:
+_add:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp + 8]
@@ -10,10 +10,28 @@ add:
 	pop ebp
 	ret
 
-multiply:
+_multiply:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp + 8]
 	mul dword [ebp + 12]
 	pop ebp
 	ret
+
+_gettotal:
+	push ebp
+	mov ebp, esp
+	mov eax, [ebp + 8]
+	mov ecx, [ebp + 12]
+	test ecx, ecx
+	jz .@1
+	fldz
+.@2:
+	fadd qword [eax]
+	add eax, 8
+	dec ecx
+	jnz .@2
+.@1:
+	pop ebp
+	ret
+

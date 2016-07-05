@@ -1,1 +1,3 @@
-int maxofarrayASM(const int *);
+int add(int,int);
+int multiply(int,int);
+double gettotal(const double *,int);
