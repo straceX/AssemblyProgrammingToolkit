@@ -1,8 +1,7 @@
 [BITS 32]
-
 SECTION .text
-	global _mystrlen
-_mystrlen:
+	global _strlenASM
+_strlenASM:
 	push ebp
 	mov ebp, esp
 	xor ecx, ecx

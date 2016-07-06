@@ -1,4 +1,5 @@
-int add(int,int);
-int multiply(int,int);
-double gettotal(const double *,int);
-void swap(int *, int *);
+int addASM(int,int);
+int multiplyASM(int,int);
+double gettotalASM(const double *,int);
+void swapASM(int *, int *);
+int getmaxASM(const int *, int );
