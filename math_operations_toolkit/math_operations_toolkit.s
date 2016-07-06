@@ -1,8 +1,8 @@
 [BITS 32]
 section .text
-	global _add, _multiply, _gettotal
+	global _addASM, _multiplyASM, _gettotalASM,_getmaxASM
 
-_add:
+_addASM:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp + 8]
@@ -10,7 +10,7 @@ _add:
 	pop ebp
 	ret
 
-_multiply:
+_multiplyASM:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp + 8]
@@ -18,7 +18,7 @@ _multiply:
 	pop ebp
 	ret
 
-_gettotal:
+_gettotalASM:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp + 8]
@@ -35,7 +35,7 @@ _gettotal:
 	pop ebp
 	ret
 
-_swap:
+_swapASM:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp + 8]
@@ -43,5 +43,25 @@ _swap:
 	mov ecx, [ebp + 12]
 	xchg edx, [ecx]
 	mov [eax], edx
+	pop ebp
+	ret
+	
+_getmaxASM:
+	push ebp
+	mov ebp, esp
+	mov ecx, [ebp + 12]	
+	mov eax, [ebp + 8]	
+	dec ecx
+	mov edx, [eax]
+.@2:
+	add eax, 4
+	dec ecx
+	jz .@1
+	cmp edx, [eax]		
+	jg .@2
+	mov edx, [eax]
+	jmp .@2
+.@1:
+	mov eax, edx
 	pop ebp
 	ret
