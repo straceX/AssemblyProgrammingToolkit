@@ -1,6 +1,6 @@
 [BITS 32]
 section .text
-	global _addASM, _multiplyASM, _gettotalASM,_getmaxASM
+	global _addASM, _multiplyASM, _gettotalASM,_swapASM,_getmaxASM
 
 _addASM:
 	push ebp
