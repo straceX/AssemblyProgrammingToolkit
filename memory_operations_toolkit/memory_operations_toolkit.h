@@ -1,0 +1,1 @@
+void *memcpyASM(void *dest, const void *source, size_t size);
