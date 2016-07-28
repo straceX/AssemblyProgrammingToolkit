@@ -13,7 +13,8 @@ _memcpyASM:
 	mov		ecx, [ebp + 16]
 	cld
 	rep movsb
-
+	
+	mov		eax, [ebp + 8]
 	pop		edi
 	pop		esi
 	pop		ebp
