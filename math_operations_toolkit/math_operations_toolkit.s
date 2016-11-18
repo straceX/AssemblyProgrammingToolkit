@@ -1,6 +1,6 @@
 [BITS 32]
 section .text
-	global _addASM, _multiplyASM, _gettotalASM,_swapASM,_getmaxASM
+	global _addASM, _multiplyASM, _gettotalASM,_swapASM,_getmaxASM,_AddPacked
 
 _addASM:
 	push ebp
@@ -64,4 +64,21 @@ _getmaxASM:
 .@1:
 	mov eax, edx
 	pop ebp
+	ret
+
+_AddPacked:
+	push		ebp
+	mov		ebp, esp
+
+	mov		eax, [ebp  + 8]
+	vmovupd		ymm0, [eax]
+	mov		eax, [ebp + 12]
+	
+	vaddps		ymm0, [eax]
+
+	mov		eax, [ebp + 16]
+	vmovupd		[eax], ymm0
+	
+	mov		esp, ebp
+	pop		ebp
 	ret
